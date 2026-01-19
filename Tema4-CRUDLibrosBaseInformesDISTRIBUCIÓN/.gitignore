@@ -2,5 +2,5 @@
 .gradle
 
 # Ignore Gradle build output directory
-# build
-# Necesitamos la salida de build
+build/distributions
+# Necesitamos la salida de build pero no la de distributions
