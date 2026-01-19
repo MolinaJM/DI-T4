@@ -1,0 +1,68 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+    // Añadimos este plugin para crear el ejecutable con todo incluido
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "25" 
+    modules = [ 'javafx.base', 'javafx.swing', 'javafx.graphics', 'javafx.controls', 'javafx.fxml', 'javafx.media','javafx.web']
+}
+
+dependencies {
+    implementation("org.mariadb.jdbc:mariadb-java-client:3.3.2") //Se usa una más antigua por conflictos con SLF4J
+    implementation 'net.sf.jasperreports:jasperreports:7.0.1'
+    implementation 'net.sf.jasperreports:jasperreports-pdf:7.0.0'
+    implementation 'net.sf.jasperreports:jasperreports-charts:7.0.1'
+    
+    //IMPORTANTE: JasperReports 7 necesita esta librería para funcionar en runtime, 
+    //pero esto afecta a la versión de mariadb (conflicto)
+   implementation 'org.slf4j:slf4j-simple:2.0.16' // Uncomment and use a modern version
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24) 
+    }
+}
+
+application {
+    mainClass = 'crud_javafx_libros.Main'
+}
+
+// Configuración para que el JAR incluya tus archivos .jasper y .fxml
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/resources"]
+            includes = ["**/*.fxml","**/*.png","**/*.gif","**/*.properties","**/*.jasper"]  //Importante para poder abrir una extensión no reconocida
+        }
+    }
+}
+
+tasks.withType(JavaCompile) { //Fuerza a transformar todo a UTF-8
+    options.encoding = "UTF-8"
+}
+
+// Tarea para copiar todas las dependencias a la carpeta build/libs/lib
+tasks.register('copyDependencies', Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/libs/lib"
+}
+
+// Configuración del JAR normal
+tasks.jar {
+    dependsOn copyDependencies // Hace que siempre se copien las librerías al hacer el jar
+    
+    manifest {
+        attributes(
+            'Main-Class': application.mainClass.get(),
+            //Esto crea el "Class-Path" dentro del manifiesto del JAR
+            'Class-Path': configurations.runtimeClasspath.files.collect { "lib/" + it.name }.join(' ')
+        )
+    }
+}

@@ -1,0 +1,163 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="libros8" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL - Docker - Librería"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<query language="SQL"><![CDATA[select * from libros where anyo>1979]]></query>
+	<field name="Id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Id"/>
+		<property name="com.jaspersoft.studio.field.label" value="Id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<field name="Titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="Titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<field name="Autor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Autor"/>
+		<property name="com.jaspersoft.studio.field.label" value="Autor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<field name="Anyo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Anyo"/>
+		<property name="com.jaspersoft.studio.field.label" value="Anyo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<field name="Paginas" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Paginas"/>
+		<property name="com.jaspersoft.studio.field.label" value="Paginas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<field name="Img" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Img"/>
+		<property name="com.jaspersoft.studio.field.label" value="Img"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<field name="ImgBLOB" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="ImgBLOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="ImgBLOB"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="libros"/>
+	</field>
+	<group name="Group1">
+		<expression><![CDATA[$F{Autor}]]></expression>
+		<groupHeader>
+			<band height="37">
+				<element kind="frame" uuid="0a5fc4ac-2e39-4b7a-8f96-59f8eb2df66d" mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000">
+					<element kind="textField" uuid="4fbebfd3-a184-45af-b7d9-5c3faaf087b5" x="2" y="0" width="479" height="24" forecolor="#FFFFFF" textAdjust="StretchHeight" printRepeatedValues="false" bold="false" style="SubTitle">
+						<expression><![CDATA[$F{Autor}]]></expression>
+					</element>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="132" splitType="Stretch">
+		<element kind="frame" uuid="f3e25181-a001-488c-852c-3795064bbf04" mode="Opaque" x="0" y="0" width="555" height="95" backcolor="#000000">
+			<element kind="staticText" uuid="bb58a6cf-6ad5-4caf-bee8-8a387f46f447" x="0" y="0" width="553" height="66" bold="false" style="Title">
+				<text><![CDATA[INFORME LIBRERÍA]]></text>
+			</element>
+			<element kind="staticText" uuid="c9cc3f30-44b4-45cd-890f-636e36804876" x="10" y="60" width="249" height="29" fontSize="22.0" bold="false" style="SubTitle">
+				<text><![CDATA[]]></text>
+			</element>
+			<element kind="image" uuid="4757499b-db8b-4c77-a379-55532b315d10" x="492" y="16" width="50" height="50">
+				<expression><![CDATA["https://cdn-icons-png.flaticon.com/512/2232/2232688.png"]]></expression>
+			</element>
+		</element>
+		<element kind="frame" uuid="f0b8288a-b8a7-41ee-840c-a2c1ed3b5245" mode="Opaque" x="0" y="120" width="542" height="12" forecolor="#000000" backcolor="rgba(89, 47, 237, 0.43529412)">
+			<element kind="textField" uuid="3346b614-40a0-42af-87d6-e96667bfbe13" mode="Opaque" x="-5" y="-45" width="3" height="20" forecolor="#FFFFFF" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="26" splitType="Stretch">
+		<element kind="staticText" uuid="f40184b3-5bc4-474f-a7f6-45f336c4a00c" x="0" y="7" width="138" height="18" forecolor="#000000" bold="false" style="Column header">
+			<text><![CDATA[Id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9662080c-0797-4e02-b5a2-541ff7987e6e"/>
+		</element>
+		<element kind="staticText" uuid="3edaf98f-6b05-4628-85a6-d6319814a99a" x="138" y="7" width="138" height="18" forecolor="#000000" bold="false" style="Column header">
+			<text><![CDATA[Título]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb28177c-aa18-44d8-b8bb-37e0321605bf"/>
+		</element>
+		<element kind="staticText" uuid="c1e66c03-0ad9-4ed4-b9ae-3a8388af228f" x="276" y="7" width="138" height="18" forecolor="#000000" bold="false" style="Column header">
+			<text><![CDATA[Año]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="572ffe5a-4a67-46e0-a20c-29289a344849"/>
+		</element>
+		<element kind="staticText" uuid="4ef7c255-6e7e-426d-a2db-f231e7e559cf" x="414" y="7" width="138" height="18" forecolor="#000000" bold="false" style="Column header">
+			<text><![CDATA[Páginas]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4c040f4f-f8fd-4784-a069-8f2a22607031"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<element kind="frame" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259" mode="Opaque" x="0" y="0" width="555" height="18" style="Row">
+				<element kind="textField" uuid="f64a91a7-5888-4b3e-ad98-ae7f5b7a6222" positionType="Float" x="0" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+					<expression><![CDATA[$F{Id}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9662080c-0797-4e02-b5a2-541ff7987e6e"/>
+				</element>
+				<element kind="textField" uuid="323efe65-b95c-4a23-a288-c96ba4a25004" positionType="Float" x="138" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+					<expression><![CDATA[$F{Titulo}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb28177c-aa18-44d8-b8bb-37e0321605bf"/>
+				</element>
+				<element kind="textField" uuid="5168e502-1b6c-475d-be3a-81d2b1db5dd1" positionType="Float" x="276" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+					<expression><![CDATA[$F{Anyo}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="572ffe5a-4a67-46e0-a20c-29289a344849"/>
+				</element>
+				<element kind="textField" uuid="19d3fbc5-2230-4ae5-8c0e-cde773b3e45c" positionType="Float" x="414" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+					<expression><![CDATA[$F{Paginas}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4c040f4f-f8fd-4784-a069-8f2a22607031"/>
+				</element>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="7" splitType="Stretch">
+		<element kind="line" uuid="1133a906-5b71-476e-9f3e-bc97c97058c1" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1">
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</element>
+	</columnFooter>
+	<pageFooter height="25" splitType="Stretch">
+		<element kind="frame" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000">
+			<element kind="textField" uuid="4834e99c-7f6c-485a-b098-50e5187f2ab4" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="9825b46e-76f1-469a-abb8-a1cc27aad685" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+			</element>
+			<element kind="textField" uuid="137d38c7-1a83-4fc5-b156-9d5f1b1a0ddc" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</pageFooter>
+	<summary height="200" splitType="Stretch">
+		<element kind="chart" chartType="bar3D" uuid="54f67971-cdf0-4321-b9f8-ebfce7ee100a" x="-2" y="0" width="557" height="200" evaluationTime="Report" linkType="None" linkTarget="Self">
+			<dataset kind="category">
+				<series>
+					<seriesExpression><![CDATA["Libros Posteriores a 1979"]]></seriesExpression>
+					<categoryExpression><![CDATA[$F{Autor}]]></categoryExpression>
+					<valueExpression><![CDATA[$F{Anyo}]]></valueExpression>
+					<labelExpression><![CDATA[$F{Titulo}]]></labelExpression>
+				</series>
+			</dataset>
+			<plot labelRotation="38.0" categoryAxisVerticalTickLabels="true" showLabels="true" categoryAxisTickLabelRotation="38.0">
+				<categoryAxisTickLabelFont fontSize="8.0"/>
+				<rangeAxisMinValueExpression><![CDATA[1970]]></rangeAxisMinValueExpression>
+				<rangeAxisMaxValueExpression><![CDATA[2010]]></rangeAxisMaxValueExpression>
+				<itemLabel>
+					<font fontSize="6.0"/>
+				</itemLabel>
+			</plot>
+		</element>
+	</summary>
+</jasperReport>
